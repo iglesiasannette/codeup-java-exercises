@@ -14,10 +14,16 @@ public class MethodsExercises {
 //        System.out.println(multiplication(7, 5));
 //
 //        System.out.println(division(10, 2));
+
+//          System.out.println(modulus(10, 2));
 //
 //        getInteger(1, 10);
 
-       printFactorial(10);
+
+        factorial(5);
+
+//
+
 
 //
     }
@@ -56,9 +62,10 @@ public class MethodsExercises {
 //        return num1 / num2;
 //    }
 //
-    public static double modulus(double num1, double num2) {
-        return num1 % num2;
-    }
+//    public static double modulus(double num1, double num2) {
+//
+//        return num1 % num2;
+//    }
 
 
 //2. Create a method that validates that user input is in a certain range
@@ -94,26 +101,43 @@ public class MethodsExercises {
 //
 //    }
 
+    // ================== using a loop
 //    public static int getInteger(int min, int max) {
-//
-//        Scanner input = new Scanner(System.in);
-//
+//        Scanner sc = new Scanner(System.in);
 //        while (true) {
-//            System.out.println("Please enter a number between " + min + "and" + max + ":");
-//            if (input.hasNextInt()) {
-//                int userNum = input.nextInt();
-//                if (userNum >= min && userNum < -max) {
+//            System.out.println("Please enter a number between " + min + " and " + max);
+//            // the hasNextInt method will wait for input and check (return true) if valid
+//            if (sc.hasNextInt()) {
+//                int userNum = sc.nextInt(); // nextInt() can be used here instead of Integer.parseInt(sc.nextLine())
+//                if (userNum >= min && userNum <= max) {
 //                    return userNum;
 //                }
-//                System.out.println("number out of range");
+//                System.out.println("Number out of range!");
 //            } else {
-//                System.out.println("invalid input");
+//                System.out.println("Invalid input!");
 //            }
-//            input.nextLine();//needed to clear scanner of current input
+//            sc.nextLine(); // needed to clear scanner of current input
 //        }
-//
 //    }
 
+// ================== using recursion
+//    public static int getInteger(int min, int max) {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Please enter a number between " + min + " and " + max);
+//        if (sc.hasNextInt()) {
+//            int userNum = sc.nextInt();
+//            if (userNum >= min && userNum <= max) {
+//                return userNum;
+//            } else {
+//                System.out.println("Number out of range!");
+//                getInteger(min, max);
+//            }
+//        } else {
+//            System.out.println("Invalid input!");
+//            getInteger(min, max);
+//        }
+//        return 0;
+//    }
 
 //3. Calculate the factorial of a number.
 //
@@ -131,25 +155,29 @@ public class MethodsExercises {
 //2! = 1 x 2           = 2
 //3! = 1 x 2 x 3       = 6
 //4! = 1 x 2 x 3 x 4   = 24
+//
 
-    public static void printFactorial(int num) {
-        String multiples = "";
-        int factorial = 0;
-        String iteratorToString;
 
-        for (int i = 1; i <= num; i++) {
-            iteratorToString = Integer.toString(i);
-            if (i == 1) {
-                multiples = iteratorToString;
-                factorial = i;
-            }
-            if (i > 1) {
-                multiples += " x " + iteratorToString;
-                factorial = factorial * i;
-            }
-            System.out.printf("%4d!    %-60s = %d \n", i, multiples, factorial);
+    public static void factorial(int num) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a number between 1 and 10: ");
+        int userInput = input.nextInt();
+        var result = 1; //as  we are starting at 1
+        var middleString = "";
+        for (var i = 1; i <= userInput; i++) {
+            result *= i; // i represents the corresponding loop iteration
+            middleString += " x "; // first loop is " x 1", then the second loop adds i,
+            middleString += "" + i;//so middleString become "1 x 2", etc.
+            System.out.format("\n%d! = %s = %d", i, middleString, result);
         }
 
     }
 }
+
+
+
+
+
+
+
 
