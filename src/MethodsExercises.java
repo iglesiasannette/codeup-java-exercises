@@ -1,5 +1,6 @@
-import java.lang.Math;
+
 import java.util.Scanner;
+import java.util.Random;
 
 public class MethodsExercises {
 
@@ -15,12 +16,16 @@ public class MethodsExercises {
 //
 //        System.out.println(division(10, 2));
 
-//          System.out.println(modulus(10, 2));
-//
-//        getInteger(1, 10);
+//        System.out.println(modulus(10, 2));
+////
+//            getInteger(1, 10);
 
 
-        factorial(5);
+//          factorial();
+
+//          diceRoll();
+
+            HighLow(1, 10);
 
 //
 
@@ -83,7 +88,7 @@ public class MethodsExercises {
 //
 //Hint: recursion might be helpful here!
 
-//
+
 //    public static int getInteger(int min, int max) {
 //
 //        Scanner input = new Scanner(System.in);
@@ -120,14 +125,15 @@ public class MethodsExercises {
 //        }
 //    }
 
-// ================== using recursion
-//    public static int getInteger(int min, int max) {
-//        Scanner sc = new Scanner(System.in);
+    // ================== using recursion
+//    public static void getInteger(int min, int max) {
+//        Scanner input = new Scanner(System.in);
 //        System.out.println("Please enter a number between " + min + " and " + max);
-//        if (sc.hasNextInt()) {
-//            int userNum = sc.nextInt();
+//        if (input.hasNextInt()) {
+//            int userNum = input.nextInt();
 //            if (userNum >= min && userNum <= max) {
-//                return userNum;
+//                System.out.println(userNum + " is indeed an integer!");
+//
 //            } else {
 //                System.out.println("Number out of range!");
 //                getInteger(min, max);
@@ -136,7 +142,14 @@ public class MethodsExercises {
 //            System.out.println("Invalid input!");
 //            getInteger(min, max);
 //        }
-//        return 0;
+//        System.out.println("Want to enter another number? [Y/N]");
+//        String response = input.nextLine();
+//        if (response.equalsIgnoreCase("y")) {
+//            getInteger(min, max);
+//        }
+//        System.out.println("Cool! Take care, homie!");
+//
+//
 //    }
 
 //3. Calculate the factorial of a number.
@@ -158,21 +171,166 @@ public class MethodsExercises {
 //
 
 
-    public static void factorial(int num) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a number between 1 and 10: ");
-        int userInput = input.nextInt();
-        var result = 1; //as  we are starting at 1
-        var middleString = "";
-        for (var i = 1; i <= userInput; i++) {
-            result *= i; // i represents the corresponding loop iteration
-            middleString += " x "; // first loop is " x 1", then the second loop adds i,
-            middleString += "" + i;//so middleString become "1 x 2", etc.
-            System.out.format("\n%d! = %s = %d", i, middleString, result);
-        }
+//    public static void factorial() {
+//        System.out.print("Enter a number between 1 and 10: ");
+//        Scanner userInput = new Scanner(System.in);
+//        int userNumber = Integer.parseInt(userInput.nextLine());
+//        var result = 1; //as  we are starting at 1
+//        var middleString = "";
+//        for (var i = 1; i <= userNumber; i++) {
+//            result *= i; // i represents the corresponding loop iteration
+//            middleString += " x "; // first loop is " x 1", then the second loop adds i,
+//            middleString += "" + i;//so middleString becomes "1 x 2", etc.
+//            System.out.format("\n%d! = %s = %d", i, middleString, result);
+//            System.out.print("Want to roll again? [Y/N]");
+//            String response = userInput.nextLine();
+//            if(response.equalsIgnoreCase("y")) {
+//                factorial();
+//            }else{
+//                System.out.println("Cool! Take care, homie!");
+//
+//            }
+//        }
 
+//    }
+
+
+//
+//    4. Create an application that simulates dice rolling.
+//
+//    Ask the user to enter the number of sides for a pair of dice.
+//    Prompt the user to roll the dice.
+//    "Roll" two n-sided dice, display the results of each, and then ask the user if he/she wants to roll the dice again.
+//     Use static methods to implement the method(s) that generate the random numbers.
+//    Use the .random method of the java.lang.Math class to generate random numbers.
+
+//
+//    public static void diceRoll() {
+//        System.out.print("How many sides should each die have? :  ");
+//        Scanner userNum = new Scanner(System.in);
+//        int diceSides = Integer.parseInt(userNum.nextLine());
+//        double randomGen = (Math.random() * (diceSides - 1)) + 1;
+//        int random = (int) randomGen; //for the first die
+//        double randomGen2 = (Math.random() * (diceSides - 1)) + 1;
+//        int random2 = (int) randomGen2; //for the second die
+//        int dice1 = random;
+//        int dice2 = random2;
+//        System.out.printf("You rolled a %d on the first die, and %d on the second die.\n", dice1, dice2);
+//        System.out.print("Want to roll again? [Y/N]");
+//        String response = userNum.nextLine();
+//        if (response.equalsIgnoreCase("y")) {
+//            diceRoll();
+//        } else {
+//            System.out.println("Cool! Take care, homie!");
+//
+//        }
+//    }
+
+    // *** The java.lang.Math.random() method returns a pseudorandom
+    // double type number greater than or equal to 0.0 and less than 1.0.
+    // When this method is first called, it creates a single new pseudorandom-number generator,
+    //exactly as if by the expression new java.util.Random.
+
+    //EXAMPLE:// Java program to demonstrate working of java.lang.Math.random() method
+    //import java.lang.Math;
+    //
+    //class Gfg2 {
+    //driver code//
+//    public static void main(String args[])
+//    {
+//        // define the range
+//        int max = 10;
+//        int min = 1;
+//        int range = max - min + 1;
+//
+//        // generate random numbers within 1 to 10//
+//        for (int i = 0; i < 10; i++) {
+//            int rand = (int)(Math.random() * range) + min;
+//
+//            // Output is different everytime this code is executed
+//            System.out.println(rand);
+//        }
+//    }
+//}
+    //Output:
+    //
+    //6
+    //8
+    //10
+    //10
+    //5
+    //3
+    //6
+    //10
+    //4
+    //2
+
+    //5. Game Development 101
+    //Welcome to the world of game development!
+    //You are going to build a high-low guessing game. Create a class named HighLow inside of src.
+    //The specs for the game are:
+    //
+    //Game picks a random number between 1 and 100.
+    //Prompts user to guess the number.
+    //All user inputs are validated.
+    //If user's guess is less than the number, it outputs "HIGHER".
+    //If user's guess is more than the number, it outputs "LOWER".
+    //If a user guesses the number, the game should declare "GOOD GUESS!"
+
+    public static void HighLow(double min, double max) {
+         int MAX = 10;
+         int MIN = 1;
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Pick a number between " + MIN + " and " + MAX);
+
+        Random rand = new Random();
+        int randomGen = rand.nextInt((MAX - MIN) + 1) + MIN;     //Random generator from 1 to 10
+        int answer = randomGen;
+
+        System.out.println("Enter your guess: ");
+        int guess = Integer.parseInt(input.nextLine());
+        boolean win = false;
+
+        while (win == false) {
+            if (guess < min || guess > MAX)        //if the input is not within the valid range
+            {
+                System.out.println("Enter a number within the valid range of " + MIN + " and " + MAX);
+                guess = Integer.parseInt(input.nextLine());
+
+            }
+            if (guess > answer) {        //if input guess is higher than the answer
+                System.out.println("Too high");
+                System.out.println("Enter another guess: ");
+                guess = Integer.parseInt(input.nextLine());
+            } else {
+                if (guess < answer)        //if input guess is lower than the answer
+                {
+                    System.out.println("Too low");
+                    System.out.println("Enter another guess: ");
+                    guess = Integer.parseInt(input.nextLine());
+                } else if (guess == answer)  {                  //if guess equals to answer
+                    System.out.println("Good Guess!");
+                }
+                win = true;
+                System.out.println(guess + " is Correct!");
+                System.out.print("Want to roll again? [Y/N]\n");
+                String response = input.nextLine();
+                if (response.equalsIgnoreCase("y")) {
+                    HighLow(min, max);
+                } else {
+                    System.out.println("Cool! Take care, homie!");
+
+                }
+
+            }
+
+        }
     }
 }
+
+
+
 
 
 
