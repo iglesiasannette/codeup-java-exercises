@@ -7,6 +7,9 @@ public class JavaStringBonuses {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
+//        int x = 5;
+//        System.out.println(x > 2 ? x < 4 ? 10 : 8 : 7);
+
         //================================= JAVA STRING BONUSES
         //
         //----BONUS 1
@@ -24,8 +27,6 @@ public class JavaStringBonuses {
         //
         //input - 12/01/1999
         //output - December 12, 1999
-
-
 
 
 //        System.out.println("Enter a date MM/DD/YYYY");
@@ -82,7 +83,6 @@ public class JavaStringBonuses {
 //        System.out.println(output);
 
 
-
 ////
 //        ----BONUS 2
 //
@@ -123,8 +123,6 @@ public class JavaStringBonuses {
 //        System.out.println(output);
 
 
-
-
 //----BONUS 3
 
 //        Create a command line calculator application.
@@ -156,54 +154,63 @@ public class JavaStringBonuses {
 //        no (user enters this)
 //
 //        GOODBYE!!!
+//
+//
+//        double num1, num2;
+//
+//        System.out.print("Enter first number:");
+//
+//        /*We are using data type double so that user
+//         * can enter integer as well as floating point
+//         * value
+//         */
+//        num1 = input.nextDouble();
+//        System.out.print("Enter second number:");
+//        num2 = input.nextDouble();
+//
+//        System.out.print("Enter an operator (+, -, *, /): ");
+//        char operator = input.next().charAt(0);
+//
+//        input.close();
+//        double output;
+//
+//        switch(operator)
+//        {
+//            case '+':
+//                output = num1 + num2;
+//                break;
+//
+//            case '-':
+//                output = num1 - num2;
+//                break;
+//
+//            case '*':
+//                output = num1 * num2;
+//                break;
+//
+//            case '/':
+//                output = num1 / num2;
+//                break;
+//
+//            /* If user enters any other operator or char apart from
+//             * +, -, * and /, this display an error message to user
+//             *
+//             */
+//            default:
+//                System.out.printf("You have entered wrong operator");
+//                return;
+//        }
+//
+//        System.out.println(num1+" "+operator+" "+num2+": "+output);
 
 
-        double num1, num2;
+    }
 
-        System.out.print("Enter first number:");
+/*Given an int n, return true if it is within 10 of 100 or 200. Note: Math.abs(num) computes the absolute value of a number.*/
 
-        /*We are using data type double so that user
-         * can enter integer as well as floating point
-         * value
-         */
-        num1 = input.nextDouble();
-        System.out.print("Enter second number:");
-        num2 = input.nextDouble();
-
-        System.out.print("Enter an operator (+, -, *, /): ");
-        char operator = input.next().charAt(0);
-
-        input.close();
-        double output;
-
-        switch(operator)
-        {
-            case '+':
-                output = num1 + num2;
-                break;
-
-            case '-':
-                output = num1 - num2;
-                break;
-
-            case '*':
-                output = num1 * num2;
-                break;
-
-            case '/':
-                output = num1 / num2;
-                break;
-
-            /* If user enters any other operator or char apart from
-             * +, -, * and /, this display an error message to user
-             *
-             */
-            default:
-                System.out.printf("You have entered wrong operator");
-                return;
-        }
-
-        System.out.println(num1+" "+operator+" "+num2+": "+output);
+    public boolean nearHundred(int n) {
+        return ((Math.abs(100 - n) <= 10) ||
+                (Math.abs(200 - n) <= 10));
     }
 }
 

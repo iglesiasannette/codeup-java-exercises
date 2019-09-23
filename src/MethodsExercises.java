@@ -25,7 +25,7 @@ public class MethodsExercises {
 
 //          diceRoll();
 
-            HighLow(1, 10);
+            HighLow(10);
 
 //
 
@@ -277,7 +277,7 @@ public class MethodsExercises {
     //If user's guess is more than the number, it outputs "LOWER".
     //If a user guesses the number, the game should declare "GOOD GUESS!"
 
-    public static void HighLow(double min, double max) {
+    public static void HighLow(int num) {
          int MAX = 10;
          int MIN = 1;
         Scanner input = new Scanner(System.in);
@@ -285,39 +285,42 @@ public class MethodsExercises {
         System.out.println("Pick a number between " + MIN + " and " + MAX);
 
         Random rand = new Random();
-        int randomGen = rand.nextInt((MAX - MIN) + 1) + MIN;     //Random generator from 1 to 10
+        int randomGen = rand.nextInt((MAX - MIN) + 1);
+        //Random generator from 1 to 10. The Random class of Java located in the java.util
+        // package has some nextInt() methods that return
+        // an integer.
         int answer = randomGen;
 
         System.out.println("Enter your guess: ");
-        int guess = Integer.parseInt(input.nextLine());
+        int userNum = Integer.parseInt(input.nextLine());
         boolean win = false;
 
         while (win == false) {
-            if (guess < min || guess > MAX)        //if the input is not within the valid range
+            if (userNum < MIN || userNum > MAX)        //if the input is not within the valid range
             {
                 System.out.println("Enter a number within the valid range of " + MIN + " and " + MAX);
-                guess = Integer.parseInt(input.nextLine());
+                userNum = Integer.parseInt(input.nextLine());
 
             }
-            if (guess > answer) {        //if input guess is higher than the answer
+            if (userNum > answer) {        //if input guess is higher than the answer
                 System.out.println("Too high");
                 System.out.println("Enter another guess: ");
-                guess = Integer.parseInt(input.nextLine());
+                userNum = Integer.parseInt(input.nextLine());
             } else {
-                if (guess < answer)        //if input guess is lower than the answer
+                if (userNum < answer)        //if input guess is lower than the answer
                 {
                     System.out.println("Too low");
                     System.out.println("Enter another guess: ");
-                    guess = Integer.parseInt(input.nextLine());
-                } else if (guess == answer)  {                  //if guess equals to answer
+                    userNum = Integer.parseInt(input.nextLine());
+                } else if (userNum == answer)  {                  //if guess equals to answer
                     System.out.println("Good Guess!");
                 }
                 win = true;
-                System.out.println(guess + " is Correct!");
+                System.out.println(userNum + " is Correct!");
                 System.out.print("Want to roll again? [Y/N]\n");
                 String response = input.nextLine();
                 if (response.equalsIgnoreCase("y")) {
-                    HighLow(min, max);
+                    HighLow(num);
                 } else {
                     System.out.println("Cool! Take care, homie!");
 
