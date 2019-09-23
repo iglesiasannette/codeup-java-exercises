@@ -7,6 +7,7 @@ public class JavaStringBonuses {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
+        System.out.println( nearHundred(92));
 //        int x = 5;
 //        System.out.println(x > 2 ? x < 4 ? 10 : 8 : 7);
 
@@ -95,32 +96,32 @@ public class JavaStringBonuses {
 //        output - 5 vowels and 10 consonants
 
 //
-//        System.out.println("Enter a Sentence:");
-//        String userInput = input.nextLine();
+        System.out.println("Enter a Sentence:");
+        String userInput = input.nextLine();
+
+        String sentence = "";
+
+        if(userInput.endsWith(".")){
+            sentence = userInput.substring(0, userInput.length()-1); //Returns the substring starting from the specified index, 0, all the way to the end
+        } else{
+            sentence = userInput;
+        }
+
+        int vowelCount = 0;
+
+        for (int i = 0; i < userInput.length(); i++) {
+            if (userInput.charAt(i) == 'a' || userInput.charAt(i) == 'e' || userInput.charAt(i) == 'i' || userInput.charAt(i) == 'o' || userInput.charAt(i) == 'u') {
+                vowelCount++;
+            }
+        }
 //
-//        String sentence = "";
 //
-//        if(userInput.endsWith(".")){
-//            sentence = userInput.substring(0, userInput.length()-1); //Returns the substring starting from the specified index, 0, all the way to the end
-//        } else{
-//            sentence = userInput;
-//        }
-//
-//        int vowelCount = 0;
-//
-//        for (int i = 0; i < userInput.length(); i++) {
-//            if (userInput.charAt(i) == 'a' || userInput.charAt(i) == 'e' || userInput.charAt(i) == 'i' || userInput.charAt(i) == 'o' || userInput.charAt(i) == 'u') {
-//                vowelCount++;
-//            }
-//        }
-//
-//
-//        int totalVowels = vowelCount;
-//        int totalConsonants = (sentence.replaceAll("\\s","").length()) - vowelCount; // "\\s" replaces all occurrences of white space
-//
-//        String output = totalVowels + " vowels and " + totalConsonants + " consonants";
-//
-//        System.out.println(output);
+        int totalVowels = vowelCount;
+        int totalConsonants = (sentence.replaceAll("\\s","").length()) - vowelCount; // "\\s" replaces all occurrences of white space
+
+        String output = totalVowels + " vowels and " + totalConsonants + " consonants";
+
+        System.out.println(output);
 
 
 //----BONUS 3
@@ -171,7 +172,7 @@ public class JavaStringBonuses {
 //        System.out.print("Enter an operator (+, -, *, /): ");
 //        char operator = input.next().charAt(0);
 //
-//        input.close();
+//        input.close(); // closes the scanner. does not allow input after scanner is closed
 //        double output;
 //
 //        switch(operator)
@@ -208,10 +209,12 @@ public class JavaStringBonuses {
 
 /*Given an int n, return true if it is within 10 of 100 or 200. Note: Math.abs(num) computes the absolute value of a number.*/
 
-    public boolean nearHundred(int n) {
+    public static boolean nearHundred(int n) {
         return ((Math.abs(100 - n) <= 10) ||
                 (Math.abs(200 - n) <= 10));
     }
+
+
 }
 
 

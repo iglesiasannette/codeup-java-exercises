@@ -171,28 +171,28 @@ public class MethodsExercises {
 //
 
 
-//    public static void factorial() {
-//        System.out.print("Enter a number between 1 and 10: ");
-//        Scanner userInput = new Scanner(System.in);
-//        int userNumber = Integer.parseInt(userInput.nextLine());
-//        var result = 1; //as  we are starting at 1
-//        var middleString = "";
-//        for (var i = 1; i <= userNumber; i++) {
-//            result *= i; // i represents the corresponding loop iteration
-//            middleString += " x "; // first loop is " x 1", then the second loop adds i,
-//            middleString += "" + i;//so middleString becomes "1 x 2", etc.
-//            System.out.format("\n%d! = %s = %d", i, middleString, result);
-//            System.out.print("Want to roll again? [Y/N]");
-//            String response = userInput.nextLine();
-//            if(response.equalsIgnoreCase("y")) {
-//                factorial();
-//            }else{
-//                System.out.println("Cool! Take care, homie!");
-//
-//            }
-//        }
+    public static void factorial() {
+        System.out.print("Enter a number between 1 and 10: ");
+        Scanner userInput = new Scanner(System.in);
+        int userNumber = Integer.parseInt(userInput.nextLine());
+        var result = 1; //as  we are starting at 1
+        var middleString = "";
+        for (var i = 1; i <= userNumber; i++) {
+            result *= i; // i represents the corresponding loop iteration
+            middleString += " x "; // first loop is " x 1", then the second loop adds i,
+            middleString += "" + i;//so middleString becomes "1 x 2", etc.
+            System.out.format("\n%d! = %s = %d", i, middleString, result);
+            System.out.print("Want to roll again? [Y/N]");
+            String response = userInput.nextLine();
+            if(response.equalsIgnoreCase("y")) {
+                factorial();
+            }else{
+                System.out.println("Cool! Take care, homie!");
 
-//    }
+            }
+        }
+
+    }
 
 
 //
@@ -205,26 +205,26 @@ public class MethodsExercises {
 //    Use the .random method of the java.lang.Math class to generate random numbers.
 
 //
-//    public static void diceRoll() {
-//        System.out.print("How many sides should each die have? :  ");
-//        Scanner userNum = new Scanner(System.in);
-//        int diceSides = Integer.parseInt(userNum.nextLine());
-//        double randomGen = (Math.random() * (diceSides - 1)) + 1;
-//        int random = (int) randomGen; //for the first die
-//        double randomGen2 = (Math.random() * (diceSides - 1)) + 1;
-//        int random2 = (int) randomGen2; //for the second die
-//        int dice1 = random;
-//        int dice2 = random2;
-//        System.out.printf("You rolled a %d on the first die, and %d on the second die.\n", dice1, dice2);
-//        System.out.print("Want to roll again? [Y/N]");
-//        String response = userNum.nextLine();
-//        if (response.equalsIgnoreCase("y")) {
-//            diceRoll();
-//        } else {
-//            System.out.println("Cool! Take care, homie!");
-//
-//        }
-//    }
+    public static void diceRoll() {
+        System.out.print("How many sides should each die have? :  ");
+        Scanner userNum = new Scanner(System.in);
+        int diceSides = Integer.parseInt(userNum.nextLine());
+        double randomGen = (int) (Math.random() * (diceSides - 1)) + 1;
+        int random = (int) randomGen; // explicitly casts the math.random from a double to an int, for the first die
+        double randomGen2 = (Math.random() * (diceSides - 1)) + 1;
+        int random2 = (int) randomGen2; //explicitly casts the math.random from a double to an int, for the second die
+        int dice1 = random;
+        int dice2 = random2;
+        System.out.printf("You rolled a %d on the first die, and %d on the second die.\n", dice1, dice2);
+        System.out.print("Want to roll again? [Y/N]");
+        String response = userNum.nextLine();
+        if (response.equalsIgnoreCase("y")) {
+            diceRoll();
+        } else {
+            System.out.println("Cool! Take care, homie!");
+
+        }
+    }
 
     // *** The java.lang.Math.random() method returns a pseudorandom
     // double type number greater than or equal to 0.0 and less than 1.0.
