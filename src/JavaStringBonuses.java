@@ -94,6 +94,36 @@ public class JavaStringBonuses {
 //        input - "The hill are alive."
 //        output - 5 vowels and 10 consonants
 
+//
+//        System.out.println("Enter a Sentence:");
+//        String userInput = input.nextLine();
+//
+//        String sentence = "";
+//
+//        if(userInput.endsWith(".")){
+//            sentence = userInput.substring(0, userInput.length()-1); //Returns the substring starting from the specified index, 0, all the way to the end
+//        } else{
+//            sentence = userInput;
+//        }
+//
+//        int vowelCount = 0;
+//
+//        for (int i = 0; i < userInput.length(); i++) {
+//            if (userInput.charAt(i) == 'a' || userInput.charAt(i) == 'e' || userInput.charAt(i) == 'i' || userInput.charAt(i) == 'o' || userInput.charAt(i) == 'u') {
+//                vowelCount++;
+//            }
+//        }
+//
+//
+//        int totalVowels = vowelCount;
+//        int totalConsonants = (sentence.replaceAll("\\s","").length()) - vowelCount; // "\\s" replaces all occurrences of white space
+//
+//        String output = totalVowels + " vowels and " + totalConsonants + " consonants";
+//
+//        System.out.println(output);
+
+
+
 
 //----BONUS 3
 
@@ -128,16 +158,62 @@ public class JavaStringBonuses {
 //        GOODBYE!!!
 
 
+        double num1, num2;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter first number:");
 
+        /*We are using data type double so that user
+         * can enter integer as well as floating point
+         * value
+         */
+        num1 = scanner.nextDouble();
+        System.out.print("Enter second number:");
+        num2 = scanner.nextDouble();
 
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
 
+        scanner.close();
+        double output;
 
+        switch(operator)
+        {
+            case '+':
+                output = num1 + num2;
+                break;
 
+            case '-':
+                output = num1 - num2;
+                break;
 
+            case '*':
+                output = num1 * num2;
+                break;
 
+            case '/':
+                output = num1 / num2;
+                break;
+
+            /* If user enters any other operator or char apart from
+             * +, -, * and /, this display an error message to user
+             *
+             */
+            default:
+                System.out.printf("You have entered wrong operator");
+                return;
+        }
+
+        System.out.println(num1+" "+operator+" "+num2+": "+output);
     }
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
 
