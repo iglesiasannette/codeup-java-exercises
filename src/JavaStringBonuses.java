@@ -159,21 +159,21 @@ public class JavaStringBonuses {
 
 
         double num1, num2;
-        Scanner scanner = new Scanner(System.in);
+
         System.out.print("Enter first number:");
 
         /*We are using data type double so that user
          * can enter integer as well as floating point
          * value
          */
-        num1 = scanner.nextDouble();
+        num1 = input.nextDouble();
         System.out.print("Enter second number:");
-        num2 = scanner.nextDouble();
+        num2 = input.nextDouble();
 
         System.out.print("Enter an operator (+, -, *, /): ");
-        char operator = scanner.next().charAt(0);
+        char operator = input.next().charAt(0);
 
-        scanner.close();
+        input.close();
         double output;
 
         switch(operator)
