@@ -19,6 +19,7 @@ public class ArraysExercises {
         //Array Basics
         // What happens when you run the following code? Why is Arrays.toString necessary?
         // answer: it is necessary to so as to see a string representation of the array in the console.
+        // without toString, all you see is the reference ID because an array is an object type in java
 //        int[] numbers = {1, 2, 3, 4, 5};
 //        System.out.println(Arrays.toString(numbers));
 
