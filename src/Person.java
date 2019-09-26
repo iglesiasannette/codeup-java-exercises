@@ -15,6 +15,8 @@ public class Person {
     //// prints a message to the console using the person's name
     //public void sayHello();
 
+
+    //defined fields (String name) and visibility (private)
     private String name;
 
     public Person(String name) {  //< this is the constructor for the class
