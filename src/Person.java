@@ -24,11 +24,11 @@ public class Person {
 
 
     public String getName() { //this method returns the person's name
-        return this.name; // refers to the name of the object as it is initialized as being private above
+        return this.name; // refers to the name of the object/class as it is initialized as being private above
     }
 
     public void setName(String name){ //this is a method of the class
-        this.name = name; // takes in the input and changes the name property to the passed value
+        this.name = name; // takes in the input and applies the passed value to the name property
 
     }
 
