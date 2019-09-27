@@ -16,13 +16,12 @@ public class MoviesApplication {
             displayMenu();
             userChoice = input.getInt(0, 5);
             willContinue = processChoice(userChoice);
-            System.out.println(willContinue);
         } while (willContinue);
 
     }
 
     public static void displayMenu() {
-        String menu = "What would you like to do?\n" +
+        String menu = "Select a number corresponding to the menu below to search for a flick: \n" +
                 "\n" +
                 "0 - exit\n" +
                 "1 - view all movies\n" +
@@ -39,11 +38,11 @@ public class MoviesApplication {
 
         switch (userChoice) {
             case 0:
-                System.out.println("Exit!");
-                output = false;
+                System.out.println("See Ya!");
+                output = false; //breaks you out of the loop
                 break;
             case 1:
-                displayMovies();
+                displayMovies("View All");
                 break;
             case 2:
                 displayMovies("animated");
@@ -63,13 +62,15 @@ public class MoviesApplication {
 
     }
 
-    public static void displayMovies() {
-        String output = "";
-        for (Movie movie : MoviesArray.findAll()) {
-            output += String.format("%s -- %s%n", movie.getName(), movie.getCategory());
-        }
-        System.out.println(output);
-    }
+
+//    //This method uses an enhance-for loop to iterate over the Movies array and returns all the output for that category
+//    public static void displayMovies() {
+//        String output = "";
+//        for (Movie movie : MoviesArray.findAll()) {
+//            output += String.format("%s -- %s%n", movie.getName(), movie.getCategory());
+//        }
+//        System.out.println(output);
+//    }
 
     public static void displayMovies(String category) {
         String output = "";
