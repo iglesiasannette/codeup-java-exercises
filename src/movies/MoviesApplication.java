@@ -1,73 +1,83 @@
-//Create a class named MoviesApplication that has a main method.
-//Give the user a list of options for viewing all the movies or viewing movies by category.
-//Use your Input class to get input from the user, and display information based on their choice. (Remember to import your Input class)
-//If a category is selected, only movies from that category should be displayed.
-//Your application should continue to run until the user chooses to exit
 package movies;
-
 import util.Input;
 
 public class MoviesApplication {
-    static Input input = new Input();
-    static Movie[] movies = MoviesArray.findAll();
 
     public static void main(String[] args) {
-        boolean keepGoing;
 
-        System.err.println("Choose a movie by category: ");
+        System.out.println("Welcome to Movies App!");
+
+        Input input = new Input();
+
+        int userChoice;
+        boolean willContinue;
+
         do {
-            System.out.println("0 - exit\n" +
-                    "1 - view all movies\n" +
-                    "2 - view movies in the animated category\n" +
-                    "3 - view movies in the drama category\n" +
-                    "4 - view movies in the horror category\n" +
-                    "5 - view movies in the scifi category");
+            displayMenu();
+            userChoice = input.getInt(0, 5);
+            willContinue = processChoice(userChoice);
+            System.out.println(willContinue);
+        } while (willContinue);
 
-            int userAnswer = input.getInt(0, 5);
+    }
 
-            switch (userAnswer) {
-                case 0:
-                    System.out.println("Later, dude!");
-                    break;
-                case 1:
-                    for (Movie movie : movies) {
-                        System.out.println(movie.getName() + " -- " + movie.getCategory());
-                    }
-                    break;
-                case 2:
-                    for (Movie movie : movies) {
-                        if (movie.getCategory().equals("animated")) {
-                            System.out.println(movie.getName() + " -- " + movie.getCategory());
-                        }
-                    }
-                    break;
-                case 3:
-                    for (Movie movie : movies) {
-                        if (movie.getCategory().equals("drama")) {
-                            System.out.println(movie.getName() + " -- " + movie.getCategory());
-                        }
-                    }
-                    break;
-                case 4:
-                    for (Movie movie : movies) {
-                        if (movie.getCategory().equals("horror")) {
-                            System.out.println(movie.getName() + " -- " + movie.getCategory());
-                        }
-                    }
-                    break;
-                case 5:
-                    for (Movie movie : movies) {
-                        if (movie.getCategory().equals("scifi")) {
-                            System.out.println(movie.getName() + " -- " + movie.getCategory());
-                        }
-                    }
-                    break;
-                default:
-                    System.err.println("Select a valid category");
+    public static void displayMenu() {
+        String menu = "What would you like to do?\n" +
+                "\n" +
+                "0 - exit\n" +
+                "1 - view all movies\n" +
+                "2 - view movies in the animated category\n" +
+                "3 - view movies in the drama category\n" +
+                "4 - view movies in the horror category\n" +
+                "5 - view movies in the scifi category";
+        System.out.println(menu);
+    }
+
+    public static boolean processChoice(int userChoice) {
+
+        boolean output = true;
+
+        switch (userChoice) {
+            case 0:
+                System.out.println("Exit!");
+                output = false;
+                break;
+            case 1:
+                displayMovies();
+                break;
+            case 2:
+                displayMovies("animated");
+                break;
+            case 3:
+                displayMovies("drama");
+                break;
+            case 4:
+                displayMovies("horror");
+                break;
+            case 5:
+                displayMovies("scifi");
+                break;
+        }
+
+        return output;
+
+    }
+
+    public static void displayMovies() {
+        String output = "";
+        for (Movie movie : MoviesArray.findAll()) {
+            output += String.format("%s -- %s%n", movie.getName(), movie.getCategory());
+        }
+        System.out.println(output);
+    }
+
+    public static void displayMovies(String category) {
+        String output = "";
+        for (Movie movie : MoviesArray.findAll()) {
+            if (category.equalsIgnoreCase(movie.getCategory())) {
+                output += String.format("%s -- %s%n", movie.getName(), movie.getCategory());
             }
-            System.out.println("Would you like to continue scouring through films?? [Y/N]");
-            keepGoing = input.yesNo(); //references the boolean yesNo() method from Input.java
-        } while (keepGoing);
-        System.out.println("See ya!");
+        }
+        System.out.println(output);
     }
 }
