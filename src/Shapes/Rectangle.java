@@ -11,8 +11,8 @@ package Shapes;
 
 public class Rectangle {
 
-    public int length;
-    public int width;
+    protected int length;
+    protected int width;
 
 
 
@@ -33,11 +33,15 @@ public class Rectangle {
     }
 
     public int getPerimeter() {
+
         return (2 * this.length) + (2 * this.width) ;
     }
 
-    public int setPerimeter() {
+    public int  setPerimeter() {
+
         return (2 * this.length) + (2 * this.width) ;
     }
+
+
 
 }
