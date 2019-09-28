@@ -1,4 +1,4 @@
-//package Shapes;
+//package shapes;
 //
 //public class Square extends Rectangle {
 //
@@ -48,52 +48,36 @@
 //
 //}
 
-package Shapes;
 
-public class Square extends Rectangle {
+//Abstractions exercise
 
-    //Create a class named Square, also inside of shapes, that extends Rectangle. Square
-    // should define a constructor that accepts one argument, side, and calls the parent's constructor
-    // to set both the length and width to the value of side.
+package shapes;
 
-    //In the Square class, override the getArea and getPerimeter methods with the following definitions for a square
-    //
-    //
-    //perimeter = 4 x side
-    //area = side ^ 2
-    //Re-run your ShapesTest class. How can you determine which getArea and getPerimeter
-    // methods are being called on each object?
+public class Square extends Quadrilateral {
 
-
-   //**Version Two
-
-    public Square(int side){
-        super(side, side); // grabs the side parameter and equates the value to the parent's length & width, resulting in the dimensions being able to be calculated
-
-    }
-
-
-    @Override
-    public int getPerimeter() {
-
-        return 4 * super.length; // one input is being accepted by square, so the name of the variable is irrelevant as the method is valid
+    public Square(double side) {
+        super(side, side);
     }
 
     @Override
-    public int getArea() {
-        return (int) Math.pow(super.length, 2) ;
+    void setLength(double length) {
+        super.length = length;
+        super.width = length;
     }
 
-
-    public void setLength() {
-
+    @Override
+    void setWidth(double width) {
+        super.width = width;
+        super.length = width;
     }
 
-
-    public void setWidth() {
-
+    @Override
+    public double getPerimeter() {
+        return 4 * super.width;
     }
 
-
-
+    @Override
+    public double getArea() {
+        return (super.width * super.width);
+    }
 }
