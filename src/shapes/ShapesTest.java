@@ -37,6 +37,7 @@ package shapes;
 public class ShapesTest {
     public static void main(String[] args) {
 
+        //declare a variable of the type Measurable named myShape.
         Measurable myShape;
 
 //        Rectangle box1 = new Rectangle(5, 4);
@@ -58,6 +59,13 @@ public class ShapesTest {
         System.out.println("myShape.getPerimeter() = " + myShape.getPerimeter());
         System.out.println("myShape.getArea() = " + myShape.getArea());
 
+
+        //Why does the code fail to compile if you leave off the getPerimeter method in Rectangle?
+            //Answer: because the code block of getPerimeter in Rectangle has the explicit directions
+            //for calculating the perimeter of a rectangle
+
+        //What happens if you try to call the getLength or getWidth methods of the myShape variable? Why?
+        // the methods won't be available because myShape is just an instance of Rectangle and not it's own class.
 
     }
 }

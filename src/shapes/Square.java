@@ -59,6 +59,9 @@ public class Square extends Quadrilateral {
         super(side, side);
     }
 
+
+    //Because the length of all sides of a square are the same,
+    // the methods for setting the length and the width should set both protected properties.
     @Override
     void setLength(double length) {
         super.length = length;
