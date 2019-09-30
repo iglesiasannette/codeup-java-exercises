@@ -24,19 +24,19 @@ public class Vowel {
         int uCount=0;
         for (int i = 0; i < userInput.length(); i++)
         {
-            if (userInput.charAt(i) == 'a' ) {
+            if (userInput.charAt(i) == 'a' || userInput.charAt(i) == 'A' ) {
                 aCount++;
             }
-            if (userInput.charAt(i) == 'e' ) {
+            if (userInput.charAt(i) == 'e' || userInput.charAt(i) == 'E') {
                 eCount++;
             }
-            if (userInput.charAt(i) == 'i' ) {
+            if (userInput.charAt(i) == 'i' || userInput.charAt(i) == 'I' ) {
                 iCount++;
             }
-            if (userInput.charAt(i) == 'o' ) {
+            if (userInput.charAt(i) == 'o' || userInput.charAt(i) == 'O') {
                 oCount++;
             }
-            if (userInput.charAt(i) == 'u' ) {
+            if (userInput.charAt(i) == 'u' || userInput.charAt(i) == 'U' ) {
                 uCount++;
             }
         }
