@@ -1,3 +1,25 @@
+//  Build a command line Tic Tac Toe game...
+//
+//    - the game board should be a multi-dimensional array of Strings
+//    - be sure the board displays the column letter and row number:
+//
+//          A   B   C
+//      1  -O- --- ---
+//      2  --- -X- ---
+//      3  --- --- ---
+//
+//    - the "O" in the example above is at 1a and the "X" is at 2B
+//    - the winning three in a row should match should be drawn with stars instead of dashes:
+//
+//          A   B   C
+//      1  *O* *O* *O*
+//      2  --- -X- ---
+//      3  -X- --- ---
+//
+//    - player one and player two should alternate turns
+//    - be sure to display who's turn it is and who won
+
+
 package ticTacToe;
 
 import util.Input; //importing the getString and getInt methods from Input.java
@@ -9,11 +31,11 @@ public class ticTacToe {
     public static void main(String[] args) {
 
         //starts with player 1
-        String playerTurn = "Player 1";
+        String playerMove = "Player 1";
 
         showGrid();
 
-        getInput(playerTurn);
+        getInput(playerMove);
 
         System.out.println("We've got a winner!");
 
@@ -37,13 +59,13 @@ public class ticTacToe {
         System.out.format("%-3s %-3s %-3s %-3s\n", grid[3][0], grid[3][1], grid[3][2], grid[3][3]);  // row 3 column A, row 3 column B, row 3 column C
     }
 
-    public static void getInput(String playerTurn){
+    public static void getInput(String playerMove){
         boolean playerWon = false;
         Input thisInput = new Input();
 
         do {
             int columnIndex = 0;
-            System.out.format("Select your move %s, by choosing a letter for the column and a number for the row,", playerTurn + "!");
+            System.out.format("Select your move %s, by choosing a letter for the column and a number for the row,", playerMove + "!");
             System.out.println("Choose a column: A, B, or C? \n");
             String columnSelection = thisInput.getString();
             if (columnSelection.equalsIgnoreCase("a")) {
@@ -54,34 +76,34 @@ public class ticTacToe {
                 columnIndex = 3;
             } else {
                 System.out.println("Invalid selection. Please select a column: A, B, or C?");
-                getInput(playerTurn);
+                getInput(playerMove);
             }
 
             System.out.println("Now choose a row:  1, 2, or 3?");
             int rowIndex = thisInput.getInt(1, 3); //starts at index 1 and ends at index 3
 
-            if (playerTurn.equalsIgnoreCase("player 1")) {
+            if (playerMove.equalsIgnoreCase("player 1")) {
                 if (grid[rowIndex][columnIndex].equalsIgnoreCase("---")) {
                     grid[rowIndex][columnIndex] = "-X-";
                 } else {
                     System.out.println("That space is taken. Try again");
-                    getInput(playerTurn);
+                    getInput(playerMove);
                 }
                 //as soon as the player makes a valid selection, the grid will display again, the checkWinner()
                 //method will run and see if there are 3 x's in a row, will end. Else, it will be player 2's turn
                 showGrid();
                 playerWon = checkWinner("-X-");
-                playerTurn = "Player 2";
-            } else if (playerTurn.equalsIgnoreCase("player 2")) {
+                playerMove = "Player 2";
+            } else if (playerMove.equalsIgnoreCase("player 2")) {
                 if (grid[rowIndex][columnIndex].equalsIgnoreCase("---")) {
                     grid[rowIndex][columnIndex] = "-O-";
                 } else {
                     System.out.println("That space is taken. Try again");
-                    getInput(playerTurn);
+                    getInput(playerMove);
                 }
                 showGrid();
                 playerWon = checkWinner("-O-");
-                playerTurn = "Player 1";
+                playerMove = "Player 1";
             }
         } while (!playerWon); //the conditions in the playerWon method determine if this do-while keeps looping
 
