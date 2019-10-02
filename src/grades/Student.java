@@ -66,11 +66,13 @@ public class Student {
     //Add a method named recordAttendance(String date, String value) that adds records to the
     // HashMap this method should make sure value is an an acceptable string.
 
+
+    //this method adds the attendance records to the attendance property of each student object (EX: this.attendance)
     public void recordAttendance(String date, String value) {
         if (value.equalsIgnoreCase("a")) {
-            this.attendance.putIfAbsent(date, "A");
+            this.attendance.putIfAbsent(date, "A"); //.put	set a key-value pair
         } else if (value.equalsIgnoreCase("p")) {
-            this.attendance.putIfAbsent(date, "P");
+            this.attendance.putIfAbsent(date, "P"); //.put	set a key-value pair
         } else {
             System.out.println("Student can only be \"A\"bsent or \"P\"resent...");
         }
@@ -84,12 +86,12 @@ public class Student {
 
     public void attendancePercentage() {
         ArrayList<String> absences = new ArrayList<>();
-        for (String date : attendance.keySet()) {
-            if (attendance.get(date).equalsIgnoreCase("A")) {
-                absences.add(date);
+        for (String date : attendance.keySet()) { //keyset because we want the keyvalue pair, date : value, from the attendance hashmap
+            if (attendance.get(date).equalsIgnoreCase("A")) { //.get	return the value associated with the given key
+                absences.add(date); //.add (as absences is an array list) .add adds an element to the collection (optionally) at a specified index
             }
         }
-        double average = (double) (attendance.size() - absences.size()) / attendance.size();
+        double average = (double) (attendance.size() - absences.size()) / attendance.size(); //.size	is like  ".length" and works for both hashmaps and arrays
         average *= 100;
         System.out.printf("%nDays absent: %d" + "%nAttendance percentage: %.2f %n", absences.size(), average);
     }

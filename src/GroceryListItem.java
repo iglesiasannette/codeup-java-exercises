@@ -16,6 +16,8 @@ public class GroceryListItem {
         public int quantity;
         public String category;
 
+
+        //constructor
         public GroceryListItem(){
             Input thisInput = new Input();
             System.out.println("What is the name of the item you are wishing to purchase?");

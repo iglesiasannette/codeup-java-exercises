@@ -5,12 +5,17 @@ public class InputTest {
     public static void main(String[] args) {
         Input input = new Input();
 
-        System.err.println(input.getString()); //version 1
-        System.err.println(input.getString("Talk to me: ")); // version 2
+//        System.err.println(input.getString()); //version 1
+//        System.err.println(input.getString("Talk to me: ")); // version 2
+//
+//        System.err.println(input.getInt());
+//        System.err.println(input.getDouble());
+//        System.err.println(input.yesNo());
 
-        System.err.println(input.getInt());
-        System.err.println(input.getDouble());
-        System.err.println(input.yesNo());
+
+        //bonus
+        System.out.println(input.getBinary());
+        System.out.println(input.getStandard());
     }
 
     //System.out.println, then you're dumping your errors to the stdout, not stderr.

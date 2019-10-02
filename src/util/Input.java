@@ -27,7 +27,7 @@ public class Input {
     //////////////////////////////////////////////////////////
     /// version 1. this method can be called without an argument and "Write something: " would print
     public String getString(){
-        return getString("Write something: "); //When getString() is SOUT'd, it will return a prompt that says "write something" in which the user will input a string
+        return getString(""); //When getString() is SOUT'd, it will return a prompt that says "write something" in which the user will input a string
     }
 
 
@@ -68,7 +68,7 @@ public class Input {
 
     //part 2
     public int getInt(int min, int max){
-        int num = getInt(); //uses the number passed in getInt() and once it's validated, the number is then evaluated to see if it's within range
+        int num = getInt(); //uses the number passed in  the getInt() variable and once it's validated, the number is then evaluated to see if it's within range
 
         if(num < min || num > max){
             System.out.println("Error: outside of the boundaries.");
@@ -126,4 +126,39 @@ public class Input {
     // took place. This is often invaluable for tracking errors that are unexpected since it'll
     // give you a direct (if verbose) pointer to where exactly you ran into an error
     //**source: stackoverflow
+
+
+    //bonus1
+    //method to convert binary to standard
+    public int  getBinary(){
+        int aNumber;
+        try {
+           aNumber = Integer.valueOf(getString("Enter a number: "), 2);
+        } catch (NumberFormatException e){
+            System.out.println("That's not a number.");
+            e.printStackTrace();
+            return getBinary();
+        }
+        return aNumber;
+
+    }
+
+
+    //bonus 2
+    //method to convert standard to binary
+    public static String  getStandard(){
+        System.out.println("enter a number : ");
+         Scanner input = new Scanner(System.in);
+        int aNumber = input.nextInt();
+        try {
+            System.out.println(Integer.toBinaryString(aNumber));
+
+        } catch (NumberFormatException e){
+            System.out.println("That's not a number.");
+            e.printStackTrace();
+            return getStandard();
+        }
+        return "All done";
+
+    }
 }

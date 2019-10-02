@@ -47,7 +47,6 @@ public class GradesApplication {
         annette.recordAttendance( "2019-10-04", "P");
 
 
-
         Student bridget = new Student("Bridget");
         bridget.addGrade(90);
         bridget.addGrade(70);

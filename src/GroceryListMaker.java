@@ -12,7 +12,8 @@ import util.Input; //for the getInt method
 
 public class GroceryListMaker {
 
-    public static GroceryListItem[] groceryList = new GroceryListItem[0];
+    public static GroceryListItem[] groceryList = new GroceryListItem[0]; //a static property on the GroceryListMaker
+    // class should hold an array of the most up to date list of grocery list items
 
     public static void main(String[] args) {
 
@@ -21,7 +22,8 @@ public class GroceryListMaker {
 
         while (keepGoing) {
             System.out.println("What would you like to do?\n1: Print out all of your items\n2: Add a new item\n3: Exit");
-            int userSelection = userInput.getInt(1, 3);
+            int userSelection = userInput.getInt(1, 3);  //takes in the user input, with the conditions that it's an integer and is between the numbers 1 and 3
+            //pulled from the overloaded getInt() method that sets a min and a max
             if (userSelection == 1) {
                 if(groceryList.length == 0){
                     System.out.println("Sorry. There is nothing on the list.");
@@ -49,7 +51,8 @@ public class GroceryListMaker {
 
     }
 
-    public static GroceryListItem[] addItem(GroceryListItem[] previousList, GroceryListItem newItem){
+    public static GroceryListItem[] addItem(GroceryListItem[] previousList, GroceryListItem newItem){ //the addItem method is of the GroceryListItem
+        //data type and creates an array, addItem requires  two parameters. a variable of the GroceryListItem data type
         int newListLength = previousList.length + 1; // assigns the number of indexes of the old grocerylist + 1 more to newListLength
         GroceryListItem[] newList = new GroceryListItem[newListLength]; //a new instance that is an array of the GroceryListItem class with 1 more index
 
