@@ -146,6 +146,7 @@ public class Input {
 
     //bonus 2
     //method to convert standard to binary
+
     public static String  getStandard(){
         System.out.println("enter a number : ");
          Scanner input = new Scanner(System.in);
