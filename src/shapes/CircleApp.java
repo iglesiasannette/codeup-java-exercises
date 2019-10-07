@@ -2,6 +2,8 @@ package shapes;
 
 import util.Input;
 
+import java.util.ArrayList;
+
 public class CircleApp {
 
     //** prompt the user for the radius of the circle using your Input class, creates a Circle object, and displays the circumference and area. (Note that you will need to import your Input class.)
@@ -12,10 +14,10 @@ public class CircleApp {
 
 
     public static void main(String[] args) {
-        Input input = new Input();
-        Circle circle = new Circle(input.getDouble());
-        System.out.println("The area of the circle is : " + circle.getArea());
-        System.out.println("The circumference of the circle is:  " + circle.getCircumference());
+//        Input input = new Input();
+//        Circle circle = new Circle(input.getDouble());
+//        System.out.println("The area of the circle is : " + circle.getArea());
+//        System.out.println("The circumference of the circle is:  " + circle.getCircumference());
 
         /*Bonus
 
@@ -25,7 +27,12 @@ public class CircleApp {
 //        if (input == true) {
 
 //        }
+
+
+
+
     }
+
 
 
 

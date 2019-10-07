@@ -9,17 +9,83 @@ public class Circle {
 //    public double getArea();
 //    public double getCircumference();
 
-    private double radius;
+//    private double radius;
+//
+//    public Circle(double radius) {
+//        this.radius = radius;
+//    }
+//    public double getArea() {
+//        return Math.PI * (radius * radius);
+//    }
+//    public double getCircumference() {
+//        return 2 * Math.PI * radius;
+//    }
 
-    public Circle(double radius) {
-        this.radius = radius;
+    public static int square(int userInput)
+    {
+        return userInput * userInput;
+
     }
-    public double getArea() {
-        return Math.PI * (radius * radius);
+
+    //sum method A
+    public static int sum(int num1, int num2)
+    {
+        return num1+num2;
     }
-    public double getCircumference() {
-        return 2 * Math.PI * radius;
+
+    //sum method B
+
+    public static double sum(double num1, double num2)
+    {
+        return num1 + num2;
     }
+
+//    public static double average(int[] nums ) {
+//        int sum = 0;
+//        for (int n : nums) {
+//            sum += n;
+//        }
+//        double avg = 1.0d * sum / nums.length;
+//        return avg;
+//    }
+
+//    public static double average(int[] data) {
+//        int sum = 0;
+//        double average;
+//
+//        for(int i=0; i < data.length; i++){
+//            sum = sum + data[i];
+//        }
+//        average = (double)sum/data.length;
+//        return average;
+//    }
+
+
+//
+//    public static double average(int nums[], int n) {
+//        int sum = 0;
+//
+//        for (int n : nums) {
+//            sum = sum + n;
+//        }
+//        return (double) sum / nums.length;
+//
+//    }
+
+//    public static double average(int[] data) {
+//        int sum = 0;
+//        double average;
+//
+//        for(int i=0; i < data.length; i++){
+//            sum = sum + data[i];
+//        }
+//        average = (double)sum/data.length;
+//        return average;
+//    }
+
+
+
+
 }
 
 

@@ -25,26 +25,28 @@ public class Selections extends Input{
 
 
 
+
+    //this method souts the users choices
         public static void showMenu() {
             System.out.println("1. View contacts.\n" +
                     "2. Add a new contact.\n" +
                     "3. Search a contact by name.\n" +
                     "4. Delete an existing contact.\n" +
                     "5. Exit.\n" +
-                    "Enter an option (1, 2, 3, 4 or 5):");
+                    "\nEnter an option (1, 2, 3, 4 or 5):\n");
         }
 
 
     //if user selects 1
     public static void showContacts() {
 
-            System.out.println("Displaying your contacts... \n");
+            System.out.println("\nHere is your contact list... \n");
             try {
-                List<String> contactList;
-                Path contactsPath = Paths.get("data", "contacts.txt");
-                contactList = Files.readAllLines(contactsPath);
-                System.out.println("Name:        |  Phone Number:  |      Email:        |              \n----------------------------------------------------");
-                for (String contact : contactList) {
+                List<String> contactList; //creating a string called contactList
+                Path contactsPath = Paths.get("data", "contacts.txt"); //retrieves the filepath
+                contactList = Files.readAllLines(contactsPath);// uses the Files class and readAllLines method of the file and assigns it to the variable contactList
+                System.out.println("Name:        |  Phone Number:  |      Email:        |              \n----------------------------------------------------");// prints one time
+                for (String contact : contactList) { //for each contact (or line) in the contactList document, print each line
                     System.out.println(contact);
                 }
             } catch (IOException e) {
@@ -53,50 +55,85 @@ public class Selections extends Input{
     }
 
 
-    //if user selects 2
 
-
-    public static void addContactsAction() {
-        //#2 add contacts
-
-        Scanner userInput = new Scanner(System.in);
+    //part 2 of adding contacts
+    //this method gather the input from the user, then inputs the parameters in the addContact method, which appends the contact
+//    public static void addContactsAction() {
+//        //2 add contacts
 //
+//        Scanner userInput = new Scanner(System.in);
+//
+//
+//        do {
+//            System.out.println("Enter your first and last name: ");
+//            String name = userInput.nextLine();
+//            String[] fullName = name.split(" "); //creates an array of strings, splits the array. so fullName[0] is the firstname and fullName[1] is the lastName
+//            System.out.println("Enter your Phone Number: ");
+//            String num = userInput.nextLine();
+//            System.out.println("Enter your Email: ");
+//            String email = userInput.nextLine();
+//            try {//the contacts are being added in the following addContact method
+//                addContact(fullName[0], fullName[1], num, email);
+//            } catch (ArrayIndexOutOfBoundsException e) {
+//                System.out.println("Incorrect format. Try again.");
+//                continue;
+//            }
+//            System.out.println("adding \"" + name + " " + num + "\"" + email + "to contact list...");
+//            System.out.println("User Added! Continuing...");
+//            break;
+//        } while (true);
+//    }
 
-        do {
-            System.out.println("Enter your first and last name: ");
-            String name = userInput.nextLine();
-            String[] fullName = name.split(" ");
-            System.out.println("Enter your Phone Number: ");
+
+
+    //Part one of adding contacts
+    //this method formats the user info and just creates a list of strings and appends to the contactList
+//    public static void addContact(String first, String last, String num, String email) {
+//
+//        Path dataFile = Paths.get("data", "contacts.txt"); //dataFile equals the variable that holds the filepath
+//        String name = first + " " + last;
+//        String info = name + " | " + num + " | " + email + " |";
+//        List<String> contacts = Arrays.asList(info); //takes the info variable and creates an
+//        try {
+//            Files.write(dataFile, contacts/*or info.getBytes()*/, StandardOpenOption.APPEND); //write method targets the dataFile and appends the contacts list to it. write method can take in an array of bytes and/or a list of Strings
+//        } catch (IOException e) {
+//            System.out.println("ERROR");
+//            e.printStackTrace();
+//        }
+//
+//    }
+
+
+//          my condensed version of this method
+        public static void addContact()
+
+        {
+
+            Scanner userInput = new Scanner(System.in);
+
+
+            System.out.println("Enter the first name of the new contact you'd like to add: ");
+            String firstName = userInput.nextLine();
+            System.out.println("Enter the last name of the new contact you would like to add: ");
+            String lastName = userInput.nextLine();
+            String fullName = firstName + " " + lastName;
+            System.out.println("Enter the phone number of the new contact: ");
             String num = userInput.nextLine();
-            System.out.println("Enter your Email: ");
+            System.out.println("Enter the new contact's email address: ");
             String email = userInput.nextLine();
-            try {
-                addContact(fullName[0], fullName[1], num, email);
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("Incorrect format. Try again.");
-                continue;
-            }
-            System.out.println("adding \"" + name + " " + num + "\"" + email + "to contact list...");
-            System.out.println("User Added! Continuing...");
-            break;
-        } while (true);
-    }
+            String newContact = fullName + " | " + num + " | " + email;
+            List<String> contacts = Arrays.asList(newContact);
+                    try {
+                        Path dataFile = Paths.get("data", "contacts.txt");
+                        Files.write(dataFile, contacts, StandardOpenOption.APPEND);
+                        System.out.println("\nYour new contact has been added! \n");
+                        showContacts();
 
-    public static void addContact(String first, String last, String num, String email) {
-        //#2a Add contacts
-        Path dataFile = Paths.get("data", "contacts.txt");
-        String name = first + " " + last;
-        String info = name + " | " + num + " | " + email + " |";
-        List<String> contacts = Arrays.asList(info);
-        try {
-            Files.write(dataFile, contacts, StandardOpenOption.APPEND);
-        } catch (IOException e) {
-            System.out.println("ERROR");
-            e.printStackTrace();
+                    } catch (IOException e) {
+                        System.out.println("error");
+                        e.printStackTrace();
+                    }
         }
-
-    }
-
 
 
 
@@ -111,7 +148,7 @@ public class Selections extends Input{
         try {
             List<String> lines = Files.readAllLines(Paths.get("data", "contacts.txt"));
             for (String line : lines) {
-                if (line.toLowerCase().contains(search)) {
+                if (line.toLowerCase().contains(search)) { //.contains()
                     System.out.println(line);
                 }
             }
@@ -129,15 +166,15 @@ public class Selections extends Input{
         do {
             try {
                 List<String> lines = Files.readAllLines(Paths.get("data", "contacts.txt"));
-                List<String> newList = new ArrayList<>();
-                for (String line : lines) {
+                List<String> newList = new ArrayList<>(); //an instance of ArrayList from List
+                for (String line : lines) { //this loop prints all the contacts to newList but excludes from printing the contact that was searched for
                     if (!line.toLowerCase().contains(search)) {
                         newList.add(line);
                     }
-                    Files.write(Paths.get("data", "contacts.txt"), newList);
+                    Files.write(Paths.get("data", "contacts.txt"), newList); //the first parameter is the file path, and the second parameter is the variable we
                 }
                 i = false;
-                System.out.println("Contact deleted. Returning to menu...");
+                System.out.println("Contact deleted. Returning to menu...\n");
             } catch (IOException e) {
                 System.out.println("Another Error! continuing...");
             }

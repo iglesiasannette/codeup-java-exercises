@@ -20,7 +20,7 @@ package Inheritance;
 
     public String getBreed() {
 
-        return breed;
+        return this.breed;
     }
 
     public void setBreed(String breed) {
@@ -29,7 +29,7 @@ package Inheritance;
 
     public String getName() {
 
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {

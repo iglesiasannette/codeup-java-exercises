@@ -5,11 +5,12 @@ public class contactManagerTest  {
 
     public static void main(String [] args) {
 
-
+        System.out.println("\nHi! I'm your contacts manager. What would you like to do?\n\n");
         Input input = new Input();
         boolean keepGoing = true;
 
         do {
+
             Selections.showMenu();
 
             int userChoice = input.getInt(1, 5);
@@ -19,7 +20,7 @@ public class contactManagerTest  {
                     Selections.showContacts();
                     break;
                 case 2:
-                    Selections.addContactsAction();
+                    Selections.addContact();
                     break;
                 case 3:
                     Selections.searchContacts();
